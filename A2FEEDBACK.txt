@@ -1,0 +1,41 @@
+
+instructions, run indexphp
+filepath
+/Applications/XAMPP/xamppfiles/htdocs/xampp/index.php
+
+
+
+
+
+Assignment 2 Feedback:
+
+Mark: 3
+* Report
+* Table
+* Commit to GiT
+
+Make sure you do not perform code plagiarism
+
+Error:
+Missing index.php and libcommon.php
+Unable to run the install and create table
+Database/tables should be created when install.php is run
+
+Improvement:
+Code:
+You should use libcommon.php for commonly used variables and functionalities instead of redeclaring in every files.
+Variables example: username, password and database name. Functionalities example: database connection function
+
+
+
+
+registeredUsers
+Columns
+New
+account_permissions
+bio
+email
+email_activation
+id
+sign_up_date
+username
