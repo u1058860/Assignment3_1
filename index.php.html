@@ -65,13 +65,12 @@ $dsource = $HTTP_SERVER_VARS['HTTP_REFERER'];
 if ($step == 1){
 ?>
   </p>
-<form name="step1" method="post" action="install.php.html">
+<form name="step1" method="post" action="index.php.html">
     <div align="left">
       <table width="400" border="0" cellspacing="0" cellpadding="3" align="center">
         <tr>
           <td bgcolor="#ECECFF">
-            <div align="center"><b><font size="4" face="Arial, Helvetica, sans-serif" color="#000066">Step
-              1 of 2</font></b> </div>
+            <div align="center"><b><font color="#000066" size="4" face="Arial, Helvetica, sans-serif"> Please login to access Index.php</font></b></div>
           </td>
         </tr>
       </table>
@@ -118,7 +117,7 @@ if ($step == 1){
         </td>
       </tr>
     </table>
-    <p><font size="2" face="Arial, Helvetica, sans-serif"><em>*please enter &quot;user&quot; lowercase as the Username and leave password blank (for now).</em></font></p>
+    <p><font size="2" face="Arial, Helvetica, sans-serif"><em>*Please enter &quot;usquser&quot; lowercase as the username and enter &quot;usqpass&quot; as the password.</em></font></p>
   </form>
 
   <?PHP
@@ -145,84 +144,133 @@ $icd = $REMOTE_ADDR;
 }
 if ($step == clear){
 
+@MYSQL_CONNECT("$host","$user","$pass") OR DIE ("<b>Failed to connect to server.</b><br>Information entered is incorrect.<BR>Please check your username, password, and hostname that you entered.<P><a href=\"javascript:window.history.go(-1);\">Back</a>");
+@MYSQL_SELECT_DB ("$Files")
+
+mysql_query($File_Sorting);
+
+$result = mysql_query($File_Sorting);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
+ $table1 = "DROP TABLE 12all_MesgId";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
 
 
+$table1 = "DROP TABLE 12all_MesgTemp";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
 
 
+$table1 = "DROP TABLE Messages";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
 
-CREATE TABLE IF NOT EXISTS `UserUploads` (
+ $table1 = "DROP TABLE MessagesT";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
+
+  $table1 = "DROP TABLE ListMembersU";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+ }
+
+
+$table1 = "DROP TABLE ListMembers";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
+
+$table1 = "DROP TABLE Links";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
+$table1 = "DROP TABLE 12all_LinksD";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
+
+$table1 = "DROP TABLE Templates";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
+
+
+CREATE TABLE IF NOT EXISTS `File_Sorting` (
   `file_id` int(10) NOT NULL,
   `file_name` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
   `date_uploaded` datetime NOT NULL,
-  `file_size` int NOT NULL,
-  `times_downloaded` double NOT NULL,
+  `file_size` double NOT NULL,
   `file_uploader` int(1) NOT NULL,
   `file_owners` double NOT NULL
-  `times_downloaded` double NOT NULL,
-  `comments` text,
-  `price` decimal(10,0) NOT NULL, 
-  `status` enum ('a','b','c')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+$table1 = "DROP TABLE Admin";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
 
+$table1 = "DROP TABLE 12all_SubForms";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
 
+$table1 = "DROP TABLE 12all_Respond";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
+}
 
-
-
-
-CREATE TABLE IF NOT EXISTS `UserEmails` (
-  `id` varchar(11) NOT NULL,
-  `author` varchar(30) NOT NULL,
-  `contents` text NOT NULL,
-  `subject` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE `UserEmails`
-  ADD PRIMARY KEY (`id`);
-
-
-
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS `UserAccounts` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `sign_up_date` datetime NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `bio` text NOT NULL,
-  `account_permissions` enum('a','b','c') NOT NULL DEFAULT 'a',
-  `email_activation` enum('0','1') NOT NULL DEFAULT '0',
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `UserAccounts`
---
-
-INSERT INTO `UserAccounts` (`id`, `username`, `sign_up_date`, `email`, `bio`, `account_permissions`, `email_activation`, `password`) VALUES
-
-('1234589103', 'usq_test_data333', '2015-05-12 00:00:00', 'usqemail@mail.com', 'testtesttesttesttesttesttesttesttesttesttesttesttest', 'b', '1', 'passw0rd');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$table1 = "DROP TABLE 12all_RespondT";
+$result = mysql_query($table1);
+if ($result) {}
+else {
+echo("<P>Error: " .
+mysql_error() . "</P>");
 }
 ?>
   <font size="2" face="Arial, Helvetica, sans-serif" color="#FF0000">&nbsp; </font>
